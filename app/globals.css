@@ -156,6 +156,100 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; overflow-x: hidden; }
 
+.parrot-actor {
+  position: fixed;
+  z-index: 35;
+  width: clamp(190px, 18vw, 286px);
+  height: clamp(190px, 18vw, 286px);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 22px 18px rgba(5, 5, 5, 0.18));
+  transition: left 240ms ease-out, top 240ms ease-out, opacity 280ms ease;
+}
+
+.parrot-actor.is-visible { opacity: 1; }
+.parrot-actor.is-transfer { transition: left 640ms cubic-bezier(.2,.8,.2,1), top 640ms cubic-bezier(.2,.8,.2,1), opacity 280ms ease; }
+.parrot-actor.is-path { transition: left 70ms linear, top 70ms linear, opacity 280ms ease; }
+.parrot-actor canvas { pointer-events: none; transition: transform 220ms ease; }
+.parrot-actor:hover canvas { transform: scale(1.025); }
+
+.parrot-hit {
+  position: absolute;
+  z-index: 4;
+  inset: 24%;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.parrot-hit:focus-visible { outline: 2px solid var(--wom-red); outline-offset: 5px; }
+
+.parrot-caption {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 1%;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: max-content;
+  transform: translateX(-50%);
+  padding: 7px 10px;
+  background: rgba(5, 5, 5, 0.9);
+  color: var(--wom-canvas-light);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.parrot-caption i { width: 5px; height: 5px; border-radius: 50%; background: var(--wom-red); }
+.parrot-actor.on-dark .parrot-caption { background: rgba(251, 245, 239, .92); color: var(--wom-ink); }
+
+.parrot-signal-tail {
+  position: absolute;
+  left: -34px;
+  top: 53%;
+  width: 92px;
+  border-top: 1px dashed var(--wom-red);
+  opacity: .72;
+  transform: rotate(-8deg);
+  transform-origin: right center;
+}
+
+.parrot-signal-tail::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--wom-red);
+}
+
+.parrot-actor.is-perch .parrot-signal-tail { width: 54px; opacity: .35; }
+
+span[data-parrot-mark]::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  width: 20px;
+  height: 20px;
+  border: 1px dashed rgba(219, 50, 54, .55);
+  border-radius: 50%;
+}
+
+@media (max-width: 640px) {
+  .parrot-actor { width: 156px; height: 156px; }
+  .parrot-caption { bottom: -4%; font-size: 7px; padding: 6px 8px; }
+  .parrot-signal-tail { left: -20px; width: 54px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

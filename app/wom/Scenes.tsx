@@ -23,6 +23,7 @@ export function S1Message() {
   return (
     <SceneShell id="s1-message">
       <div ref={ref} className="relative mx-auto flex min-h-dvh max-w-[1600px] flex-col justify-center px-6 pt-28 pb-16 lg:px-16">
+        <span data-parrot-mark="message" className="pointer-events-none absolute right-[18%] top-[44%] h-px w-px" />
         <motion.div style={{ y: yBlush }} className="absolute -right-40 top-10 lg:right-0">
           <BlushDisc className="h-[520px] w-[520px] opacity-90" />
         </motion.div>
@@ -78,6 +79,7 @@ export function S2Voice() {
   return (
     <SceneShell id="s2-voice">
       <div ref={ref} className="relative mx-auto flex min-h-dvh max-w-[1600px] items-center px-6 py-24 lg:px-16">
+        <span data-parrot-mark="voice" className="pointer-events-none absolute right-[22%] top-[43%] h-px w-px" />
         <motion.div style={{ y: yDisc }} className="absolute right-0 top-1/4 h-[600px] w-[600px]">
           <BlushDisc className="h-full w-full opacity-80" />
         </motion.div>
@@ -224,6 +226,7 @@ export function S4Direction() {
 
               {/* the route */}
               <motion.path
+                data-parrot-path="direction"
                 d="M 40 420 C 180 260, 260 380, 360 240 S 560 120, 760 180"
                 fill="none"
                 stroke="#db3236"
@@ -332,7 +335,7 @@ export function S5System() {
 
         <div className="relative z-10 mt-20 grid gap-10 lg:grid-cols-3">
           {pillars.map((p) => (
-            <div key={p.k} className="border-t border-ink/20 pt-6">
+            <div key={p.k} data-parrot-stop="system" className="border-t border-ink/20 pt-6">
               <div className="flex items-start gap-5">
                 <div className="text-ink">{p.icon}</div>
                 <div>
@@ -371,6 +374,7 @@ export function S6Movement() {
         <div className="relative mt-24">
           <svg viewBox="0 0 1400 300" className="h-[300px] w-full">
             <motion.path
+              data-parrot-path="movement"
               d="M 40 220 C 200 60, 380 260, 560 140 S 900 260, 1080 120 S 1300 220, 1360 100"
               fill="none"
               stroke="#db3236"
@@ -462,7 +466,7 @@ export function S7Proof() {
               className={`grid gap-10 lg:grid-cols-12 ${i % 2 ? "lg:[&>div:first-child]:order-2" : ""}`}
             >
               <div className="lg:col-span-7">
-                <div className="group relative aspect-[16/10] w-full overflow-hidden bg-canvas-warm">
+                <div data-parrot-stop="proof" className="group relative aspect-[16/10] w-full overflow-hidden bg-canvas-warm">
                   <div
                     className="absolute inset-0"
                     style={{
@@ -523,7 +527,7 @@ export function S8Process() {
 
         <div className="mt-20 grid gap-10 lg:grid-cols-4">
           {steps.map((s, i) => (
-            <div key={s.k} className="relative">
+            <div key={s.k} data-parrot-stop="process" className="relative">
               <div className="flex items-baseline gap-3">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-signal">
                   0{i + 1}
@@ -566,6 +570,7 @@ export function S9Invitation() {
           </div>
 
           <form
+            data-parrot-mark="invitation"
             onSubmit={(e) => {
               e.preventDefault();
               const btn = e.currentTarget.querySelector("button");
@@ -624,4 +629,3 @@ function Field({
     </label>
   );
 }
-

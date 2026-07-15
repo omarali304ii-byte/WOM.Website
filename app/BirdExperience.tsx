@@ -32,7 +32,7 @@ export function BirdExperience() {
       const active = document.getElementById(SCENES[bestIndex]);
       if (active) {
         const rect = active.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, (viewport - rect.top) / (viewport + rect.height)));
+        const progress = Math.max(0, Math.min(1, (center - rect.top) / rect.height));
         setSceneProgress(progress);
         setTheme(active.dataset.theme === "dark" ? "dark" : "light");
       }
