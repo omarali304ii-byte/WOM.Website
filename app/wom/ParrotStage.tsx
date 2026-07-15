@@ -1,122 +1,81 @@
 "use client";
 
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 
 const Parrot3D = lazy(() => import("./Parrot3D").then((module) => ({ default: module.Parrot3D })));
 
-const SCENE_IDS = ["s1-message", "s2-voice", "s3-noise", "s4-direction", "s5-system", "s6-movement", "s7-proof", "s8-process", "s9-invitation"];
-const CAPTIONS = ["Carrying the signal", "Listening for a voice", "Cutting through noise", "Following the route", "Connecting the system", "Moving the message", "Landing on proof", "Working the process", "Ready to talk"];
+type FlightPoint = readonly [number, number];
 
-type ActorPosition = { x: number; y: number; visible: boolean; mode: "path" | "perch" };
+// One continuous route through the viewport. Every scene owns a single leg,
+// so forward and reverse scrolling always retrace the same natural flight.
+const FLIGHT_POINTS: FlightPoint[] = [
+  [0.77, 0.58],
+  [0.60, 0.46],
+  [0.25, 0.56],
+  [0.72, 0.44],
+  [0.34, 0.66],
+  [0.76, 0.54],
+  [0.24, 0.43],
+  [0.68, 0.67],
+  [0.31, 0.47],
+  [0.73, 0.56],
+];
 
-function pointOnPath(path: SVGPathElement, progress: number) {
-  const length = path.getTotalLength();
-  const point = path.getPointAtLength(Math.max(0, Math.min(1, progress)) * length);
-  const matrix = path.getScreenCTM();
-  if (!matrix) return null;
-  const screenPoint = new DOMPoint(point.x, point.y).matrixTransform(matrix);
-  return { x: screenPoint.x, y: screenPoint.y };
-}
+const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+const mix = (from: number, to: number, progress: number) => from + (to - from) * progress;
 
 export function ParrotStage({ sceneIndex, sceneProgress }: { sceneIndex: number; sceneProgress: number }) {
-  const [enabled, setEnabled] = useState(false);
-  const [reacting, setReacting] = useState(false);
-  const [transferring, setTransferring] = useState(false);
-  const [position, setPosition] = useState<ActorPosition>({ x: 0, y: 0, visible: false, mode: "perch" });
-  const previousScene = useRef(sceneIndex);
-  const reactionTimer = useRef(0);
+  const [mounted, setMounted] = useState(false);
+  const [flying, setFlying] = useState(false);
+  const [direction, setDirection] = useState<1 | -1>(-1);
+  const stopTimer = useRef(0);
+  const previousProgress = useRef(sceneIndex + sceneProgress);
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setEnabled(!media.matches);
-    update();
-    media.addEventListener?.("change", update);
-    return () => media.removeEventListener?.("change", update);
+    setMounted(true);
+    return () => window.clearTimeout(stopTimer.current);
   }, []);
 
-  useEffect(() => {
-    if (previousScene.current === sceneIndex) return;
-    previousScene.current = sceneIndex;
-    setTransferring(true);
-    const timer = window.setTimeout(() => setTransferring(false), 640);
-    return () => window.clearTimeout(timer);
-  }, [sceneIndex]);
+  const position = useMemo(() => {
+    const leg = clamp(sceneIndex, 0, FLIGHT_POINTS.length - 2);
+    const progress = clamp(sceneProgress, 0, 1);
+    const start = FLIGHT_POINTS[leg];
+    const end = FLIGHT_POINTS[leg + 1];
+    const arc = Math.sin(progress * Math.PI) * (leg % 2 === 0 ? 0.06 : 0.05);
+    const current = Math.sin(progress * Math.PI * 2) * 0.014;
 
-  useEffect(() => {
-    let frame = requestAnimationFrame(() => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const scene = document.getElementById(SCENE_IDS[sceneIndex]);
-      if (!scene) return;
-      const clampX = (value: number) => Math.max(width < 640 ? 72 : 110, Math.min(width - (width < 640 ? 72 : 110), value));
-      const clampY = (value: number) => Math.max(width < 640 ? 82 : 105, Math.min(height - (width < 640 ? 82 : 105), value));
-      let x = width * 0.76;
-      let y = height * 0.43;
-      let mode: ActorPosition["mode"] = "perch";
-
-      if (sceneIndex === 0 || sceneIndex === 1) {
-        const name = sceneIndex === 0 ? "message" : "voice";
-        const mark = scene.querySelector<HTMLElement>(`[data-parrot-mark="${name}"]`);
-        if (mark) {
-          const rect = mark.getBoundingClientRect();
-          x = rect.left;
-          y = rect.top;
-        }
-      } else if (sceneIndex === 2) {
-        mode = "path";
-        x = width * (0.82 - sceneProgress * 0.58);
-        y = height * (0.3 + Math.sin(sceneProgress * Math.PI) * 0.28);
-      } else if (sceneIndex === 3 || sceneIndex === 5) {
-        mode = "path";
-        const kind = sceneIndex === 3 ? "direction" : "movement";
-        const path = scene.querySelector<SVGPathElement>(`[data-parrot-path="${kind}"]`);
-        const point = path ? pointOnPath(path, sceneProgress) : null;
-        if (point) {
-          x = point.x;
-          y = point.y - (width < 640 ? 38 : 58);
-        }
-      } else if (sceneIndex === 4 || sceneIndex === 6 || sceneIndex === 7) {
-        const kind = sceneIndex === 4 ? "system" : sceneIndex === 6 ? "proof" : "process";
-        const stops = Array.from(scene.querySelectorAll<HTMLElement>(`[data-parrot-stop="${kind}"]`));
-        if (stops.length) {
-          const index = Math.min(stops.length - 1, Math.floor(sceneProgress * stops.length));
-          const rect = stops[index].getBoundingClientRect();
-          x = sceneIndex === 6 ? rect.right - 60 : rect.left + rect.width * 0.5;
-          y = sceneIndex === 6 ? rect.top + 58 : rect.top - 48;
-        }
-      } else if (sceneIndex === 8) {
-        const form = scene.querySelector<HTMLElement>("[data-parrot-mark=\"invitation\"]");
-        if (form) {
-          const rect = form.getBoundingClientRect();
-          x = rect.right - (width < 640 ? 58 : 82);
-          y = rect.top + (width < 640 ? 26 : 8);
-        }
-      }
-
-      setPosition({ x: clampX(x), y: clampY(y), visible: true, mode });
-    });
-    return () => cancelAnimationFrame(frame);
+    return {
+      x: mix(start[0], end[0], progress),
+      y: clamp(mix(start[1], end[1], progress) - arc + current, 0.4, 0.72),
+      horizontalTravel: end[0] - start[0],
+    };
   }, [sceneIndex, sceneProgress]);
 
-  useEffect(() => () => window.clearTimeout(reactionTimer.current), []);
+  useEffect(() => {
+    const globalProgress = sceneIndex + sceneProgress;
+    const scrollDirection = Math.sign(globalProgress - previousProgress.current);
+    previousProgress.current = globalProgress;
 
-  const react = () => {
-    window.clearTimeout(reactionTimer.current);
-    setReacting(true);
-    reactionTimer.current = window.setTimeout(() => setReacting(false), 1900);
-  };
+    if (scrollDirection !== 0) {
+      const horizontalDirection = Math.sign(position.horizontalTravel) * scrollDirection;
+      if (horizontalDirection !== 0) setDirection(horizontalDirection > 0 ? 1 : -1);
+      setFlying(true);
+      window.clearTimeout(stopTimer.current);
+      stopTimer.current = window.setTimeout(() => setFlying(false), 210);
+    }
+  }, [position.horizontalTravel, sceneIndex, sceneProgress]);
 
-  if (!enabled) return null;
+  if (!mounted) return null;
+
   return (
     <div
-      className={`parrot-actor ${position.visible ? "is-visible" : ""} ${transferring ? "is-transfer" : position.mode === "path" ? "is-path" : "is-perch"} ${sceneIndex === 2 ? "on-dark" : ""}`}
-      style={{ left: `${position.x}px`, top: `${position.y}px` }}
-      aria-live="polite"
+      className={`parrot-actor is-visible ${flying ? "is-flying" : "is-hovering"}`}
+      style={{ left: `${position.x * 100}vw`, top: `${position.y * 100}vh` }}
+      aria-hidden="true"
     >
-      <span className="parrot-signal-tail" aria-hidden="true" />
-      <Suspense fallback={null}><Parrot3D sceneIndex={sceneIndex} sceneProgress={sceneProgress} reacting={reacting} /></Suspense>
-      <button type="button" className="parrot-hit" onClick={react} aria-label="Let the Word of Mouth parrot react" />
-      <span className="parrot-caption"><i />{reacting ? "Signal received" : CAPTIONS[sceneIndex]}</span>
+      <Suspense fallback={null}>
+        <Parrot3D flying={flying} direction={direction} />
+      </Suspense>
     </div>
   );
 }
