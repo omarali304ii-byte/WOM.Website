@@ -1,34 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
   const incoming = await headers();
   const host = incoming.get("x-forwarded-host") ?? incoming.get("host") ?? "localhost:3001";
   const protocol = incoming.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const title = "Fieldwork — Ideas Need Room to Fly";
-  const description = "An interactive journey through direction, systems, movement, and process.";
+  const title = "Word of Mouth — Strategy · Design · Motion";
+  const description = "We turn signal into direction — and direction into movement.";
 
   return {
     title,
     description,
-    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+    icons: { icon: "/brand/word-of-mouth-favicon.svg", shortcut: "/brand/word-of-mouth-favicon.svg" },
     openGraph: {
       title,
       description,
       type: "website",
       url: origin,
-      images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Ideas need room to fly — Fieldwork" }],
+      images: [{ url: `${origin}/og-wom.png`, width: 1200, height: 630, alt: "Word of Mouth — Strategy, Design, Motion" }],
     },
-    twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
+    twitter: { card: "summary_large_image", title, description, images: [`${origin}/og-wom.png`] },
   };
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body></html>;
+  return <html lang="en"><body className={manrope.variable}>{children}</body></html>;
 }
