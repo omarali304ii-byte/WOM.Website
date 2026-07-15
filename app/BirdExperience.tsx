@@ -53,6 +53,7 @@ const processData = [
 
 function ParrotModel({ mode }: { mode: FlightMode }) {
   const bird = useRef<Group>(null);
+  const head = useRef<Group>(null);
   const leftWing = useRef<Mesh>(null);
   const rightWing = useRef<Mesh>(null);
   const tail = useRef<Group>(null);
@@ -65,7 +66,11 @@ function ParrotModel({ mode }: { mode: FlightMode }) {
       const targetTilt = mode === "transfer" ? -0.28 : mode === "glide" ? -0.1 : mode === "perch" ? 0.12 : 0;
       bird.current.rotation.z += (targetTilt - bird.current.rotation.z) * Math.min(1, delta * 5);
       bird.current.position.y = Math.sin(t * 2.2) * (mode === "perch" ? 0.025 : 0.08);
-      bird.current.rotation.y = Math.sin(t * 0.7) * 0.1;
+      bird.current.rotation.y += (-0.08 - bird.current.rotation.y) * Math.min(1, delta * 6);
+    }
+    if (head.current) {
+      const headAngle = mode === "transfer" ? -0.12 : mode === "survey" ? 0.08 : mode === "perch" ? -0.035 : 0;
+      head.current.rotation.z += (headAngle - head.current.rotation.z) * Math.min(1, delta * 7);
     }
     if (leftWing.current && rightWing.current) {
       const flap = Math.sin(t * energy) * amplitude;
@@ -76,29 +81,29 @@ function ParrotModel({ mode }: { mode: FlightMode }) {
   });
 
   return (
-    <group ref={bird} rotation={[0.08, -0.18, 0]} scale={0.95}>
+    <group ref={bird} rotation={[0.08, -0.08, 0]} scale={0.95}>
       <mesh castShadow position={[0, -0.05, 0]} scale={[0.76, 1.05, 0.66]}>
         <sphereGeometry args={[0.72, 28, 28]} />
         <meshStandardMaterial color="#35a85d" roughness={0.38} metalness={0.04} />
       </mesh>
-      <mesh castShadow position={[0.04, 0.72, 0.02]} scale={[0.78, 0.74, 0.76]}>
-        <sphereGeometry args={[0.62, 28, 28]} />
-        <meshStandardMaterial color="#e9f05f" roughness={0.34} />
-      </mesh>
-      <mesh castShadow position={[0.08, 0.58, 0.49]} scale={[0.6, 0.72, 0.18]}>
-        <sphereGeometry args={[0.5, 24, 24]} />
-        <meshStandardMaterial color="#f5efe0" roughness={0.48} />
-      </mesh>
-      <mesh castShadow position={[0.11, 0.63, 0.88]} rotation={[Math.PI / 2, 0, 0]} scale={[0.5, 0.45, 0.55]}>
-        <coneGeometry args={[0.4, 0.78, 4]} />
-        <meshStandardMaterial color="#ff764f" roughness={0.32} />
-      </mesh>
-      {[-0.26, 0.28].map((x) => (
-        <group key={x} position={[x, 0.86, 0.52]}>
-          <mesh><sphereGeometry args={[0.105, 16, 16]} /><meshStandardMaterial color="#13251f" /></mesh>
-          <mesh position={[x < 0 ? -0.025 : 0.025, 0.025, 0.09]}><sphereGeometry args={[0.028, 10, 10]} /><meshStandardMaterial color="white" emissive="white" emissiveIntensity={0.2} /></mesh>
+      <group ref={head} position={[0.16, 0.72, 0.02]}>
+        <mesh castShadow scale={[0.78, 0.74, 0.76]}>
+          <sphereGeometry args={[0.62, 28, 28]} />
+          <meshStandardMaterial color="#e9f05f" roughness={0.34} />
+        </mesh>
+        <mesh castShadow position={[0.25, -0.06, 0.49]} scale={[0.55, 0.68, 0.18]}>
+          <sphereGeometry args={[0.5, 24, 24]} />
+          <meshStandardMaterial color="#f5efe0" roughness={0.48} />
+        </mesh>
+        <mesh castShadow position={[0.77, -0.08, 0.06]} rotation={[0, 0, -Math.PI / 2]} scale={[0.5, 0.45, 0.55]}>
+          <coneGeometry args={[0.4, 0.78, 4]} />
+          <meshStandardMaterial color="#ff764f" roughness={0.32} />
+        </mesh>
+        <group position={[0.33, 0.18, 0.54]}>
+          <mesh><sphereGeometry args={[0.11, 18, 18]} /><meshStandardMaterial color="#13251f" /></mesh>
+          <mesh position={[0.028, 0.03, 0.09]}><sphereGeometry args={[0.03, 10, 10]} /><meshStandardMaterial color="white" emissive="white" emissiveIntensity={0.18} /></mesh>
         </group>
-      ))}
+      </group>
       <mesh ref={leftWing} castShadow position={[-0.55, -0.08, -0.02]} rotation={[0.05, 0.12, -0.58]} scale={[0.36, 1.05, 0.24]}>
         <sphereGeometry args={[0.58, 20, 20]} />
         <meshStandardMaterial color="#176c55" roughness={0.42} />
@@ -162,16 +167,20 @@ function useFlightChoreography(
       const h = window.innerHeight;
       let scene: SceneName = "hero";
       let progress = clamp(window.scrollY / Math.max(1, h * 0.78));
+      let pinnedSceneFound = false;
 
       for (let index = 0; index < sceneRefs.length; index += 1) {
         const el = sceneRefs[index].current;
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        if (rect.top <= h * 0.55 && rect.bottom >= h * 0.45) {
+        if (rect.top <= 1 && rect.bottom >= h - 1) {
+          pinnedSceneFound = true;
           scene = (["direction", "system", "movement", "process"] as SceneName[])[index];
           progress = clamp(-rect.top / Math.max(1, rect.height - h));
         }
       }
+
+      if (!pinnedSceneFound && window.scrollY > h * 0.72) return;
 
       if (scene !== priorScene.current) {
         priorScene.current = scene;
@@ -194,24 +203,27 @@ function useFlightChoreography(
         activeIndex = Math.min(3, Math.floor(progress * 4));
         const card = cardRefs.current[activeIndex];
         if (card) {
-          const rect = card.getBoundingClientRect();
-          x = rect.left + rect.width * 0.78;
-          y = rect.top + Math.min(80, rect.height * 0.28);
+          const mark = card.querySelector<HTMLElement>("[data-bird-mark]");
+          const rect = (mark ?? card).getBoundingClientRect();
+          x = mark ? rect.left + rect.width * 0.5 : rect.left + rect.width * 0.5;
+          y = mark ? rect.top + rect.height * 0.5 : rect.top - 54;
         }
         baseMode = "survey";
       } else if (scene === "movement" && journeyRef.current) {
-        const rect = journeyRef.current.getBoundingClientRect();
-        x = rect.left + rect.width * (0.04 + progress * 0.92);
-        y = rect.top + rect.height * 0.49 - 74;
+        const line = journeyRef.current.querySelector<HTMLElement>(".journey-line");
+        const rect = (line ?? journeyRef.current).getBoundingClientRect();
+        x = rect.left + rect.width * progress;
+        y = rect.top - 72;
         activeIndex = Math.min(3, Math.floor(progress * 4));
         baseMode = "wingbeat";
       } else if (scene === "process") {
         activeIndex = Math.min(3, Math.floor(progress * 4));
         const step = stepRefs.current[activeIndex];
         if (step) {
-          const rect = step.getBoundingClientRect();
-          x = w < 760 ? rect.right - 52 : rect.right - 78;
-          y = rect.top + rect.height * 0.5;
+          const mark = step.querySelector<HTMLElement>("[data-bird-mark]");
+          const rect = (mark ?? step).getBoundingClientRect();
+          x = mark ? rect.left + rect.width * 0.5 - 26 : rect.right - 78;
+          y = mark ? rect.top + rect.height * 0.5 - 54 : rect.top + rect.height * 0.5;
         }
         baseMode = "perch";
       }
@@ -223,6 +235,10 @@ function useFlightChoreography(
         settleTimer = window.setTimeout(measure, 436);
       }
       priorMark.current = mark;
+
+      const safeRadius = w < 620 ? 68 : 92;
+      x = Math.max(safeRadius, Math.min(w - safeRadius, x));
+      y = Math.max(safeRadius, Math.min(h - safeRadius, y));
 
       setState((previous) => {
         const next = {
@@ -371,6 +387,7 @@ export function BirdExperience() {
                 ref={(node) => { cardRefs.current[index] = node; }}
                 className={`territory-card tone-${item.tone} ${flight.scene === "system" && flight.activeIndex === index ? "is-active" : ""}`}
               >
+                <span className="bird-mark card-bird-mark" data-bird-mark aria-hidden="true" />
                 <div className="card-top"><span>{item.id}</span><Layers3 size={18} /></div>
                 <h3>{item.title}</h3>
                 <p>{item.copy}</p>
@@ -420,6 +437,7 @@ export function BirdExperience() {
                 ref={(node) => { stepRefs.current[index] = node; }}
                 className={`process-step ${flight.scene === "process" && flight.activeIndex === index ? "is-active" : ""}`}
               >
+                <span className="bird-mark step-bird-mark" data-bird-mark aria-hidden="true" />
                 <span className="step-id">{step.id}</span>
                 <h3>{step.verb}</h3>
                 <p>{step.copy}</p>
