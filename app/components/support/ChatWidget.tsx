@@ -1,6 +1,5 @@
 "use client";
 
-import { createChat } from "@n8n/chat";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -131,8 +130,8 @@ function initializeChat() {
   window.__womN8nChat = runtime;
   publishStatus("loading");
 
-  runtime.promise = Promise.resolve()
-    .then(() => {
+  runtime.promise = import("@n8n/chat")
+    .then(({ createChat }) => {
       const target = document.getElementById("n8n-chat");
       if (!target) throw new Error("The support chat target is missing.");
 
