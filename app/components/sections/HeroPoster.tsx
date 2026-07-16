@@ -92,13 +92,12 @@ export function HeroPoster() {
 
           <h1 className="hero-heading">
             <span className="hero-line mask-line">
-              <span>Ideas get noticed.</span>
+              <span>Word of</span>
             </span>
             <span className="hero-line mask-line">
               <span className="talk-wrap">
-                Brands get{" "}
                 <em className="hero-remember">
-                  remembered.
+                  mouth.
                   <svg className="talk-ellipse" viewBox="0 0 320 120" fill="none" aria-hidden="true" preserveAspectRatio="none">
                     <path
                       className="draw-path"

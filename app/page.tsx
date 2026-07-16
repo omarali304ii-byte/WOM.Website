@@ -35,7 +35,7 @@ export default function Home() {
       addressLocality: "Cairo",
       addressCountry: "EG",
     },
-    slogan: "Ideas get noticed. Brands get remembered.",
+    slogan: "Word of Mouth.",
     areaServed: regions.map((region) => region.name),
     serviceType: services.map((service) => service.title),
     sameAs: socialLinks.map((social) => social.href),
