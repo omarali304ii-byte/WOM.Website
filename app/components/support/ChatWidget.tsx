@@ -20,7 +20,6 @@ type ChatRuntime = {
   metadata: ChatMetadata;
   promise?: Promise<void>;
   observer?: MutationObserver;
-  autoOpened?: boolean;
 };
 
 declare global {
@@ -63,17 +62,6 @@ function makeToggleAccessible(target: HTMLElement) {
       toggle.click();
     }
   });
-}
-
-function openChatForTesting(target: HTMLElement, runtime: ChatRuntime) {
-  if (runtime.autoOpened) return;
-
-  const toggle = target.querySelector<HTMLElement>(".chat-window-toggle");
-  const chatWindow = target.querySelector<HTMLElement>(".chat-window");
-  if (!toggle || !chatWindow) return;
-
-  runtime.autoOpened = true;
-  if (window.getComputedStyle(chatWindow).display === "none") toggle.click();
 }
 
 function replaceConnectionError(target: HTMLElement) {
@@ -160,7 +148,6 @@ function initializeChat() {
       }
 
       observeChat(target, runtime);
-      window.requestAnimationFrame(() => openChatForTesting(target, runtime));
       runtime.status = "ready";
       publishStatus("ready");
     })

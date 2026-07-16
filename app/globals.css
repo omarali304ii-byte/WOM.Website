@@ -688,7 +688,8 @@ h1 em, h2 em, h3 em, .board-cta-title em {
 }
 
 .hero-logo-heading {
-  width: min(100%, 640px);
+  width: min(112%, 700px);
+  margin-left: clamp(-18px, -1.4vw, -8px);
   line-height: 1;
 }
 
@@ -2756,7 +2757,8 @@ h1 em, h2 em, h3 em, .board-cta-title em {
   }
 
   .hero-logo-heading {
-    width: min(100%, 440px);
+    width: min(108%, 480px);
+    margin-left: -4%;
   }
 
   .hero-note {
