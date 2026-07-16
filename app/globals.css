@@ -687,6 +687,21 @@ h1 em, h2 em, h3 em, .board-cta-title em {
   line-height: 0.95;
 }
 
+.hero-logo-heading {
+  width: min(100%, 640px);
+  line-height: 1;
+}
+
+.hero-logo-wrap,
+.hero-logo-lockup {
+  display: block;
+  width: 100%;
+}
+
+.hero-logo-lockup {
+  height: auto;
+}
+
 .hero-line + .hero-line {
   margin-top: 0.04em;
 }
@@ -2738,6 +2753,10 @@ h1 em, h2 em, h3 em, .board-cta-title em {
 
   .hero-heading {
     font-size: clamp(2.5rem, 11.5vw, 3.6rem);
+  }
+
+  .hero-logo-heading {
+    width: min(100%, 440px);
   }
 
   .hero-note {

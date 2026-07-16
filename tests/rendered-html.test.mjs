@@ -65,8 +65,7 @@ test("server-renders the conversion-focused homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Word of Mouth — Full-service digital marketing agency<\/title>/i);
-  assert.match(html, /Word of/i);
-  assert.match(html, /mouth/i);
+  assert.match(html, /word-of-mouth-logo-stacked\.svg/i);
   assert.match(html, /Trusted by ambitious brands/i);
   assert.match(html, /Animated Video Production/i);
   assert.match(html, /Request a Quote/i);
