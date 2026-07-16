@@ -1,0 +1,91 @@
+[2m4:37:08 PM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m [33mwarning: client component dependency is inconsistently optimized. It's recommended to add the dependency to 'optimizeDeps.exclude'.[39m
+  Plugin: [35mrsc:use-client[39m
+  File: [36mD:/WOM Website/word-of-mouth-parrot-project/node_modules/lucide-react/dist/esm/Icon.mjs?v=d915cb19[39m
+[2m5:18:34 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Network connection lost.[39m
+      at runInRunnerObject (workers/runner-worker/index.js:107:3)
+      at Object.load (D:/WOM Website/word-of-mouth-parrot-project/node_modules/@vitejs/plugin-rsc/dist/ssr.js?v=8cb66ed7:21:4)
+[2m5:18:34 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Network connection lost.[39m
+      at runInRunnerObject (workers/runner-worker/index.js:107:3)
+      at Object.load (D:/WOM Website/word-of-mouth-parrot-project/node_modules/@vitejs/plugin-rsc/dist/ssr.js?v=8cb66ed7:21:4)
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-lede not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-actions > * not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-cue not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-lede not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-actions > * not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-cue not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-lede not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-actions > * not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-cue not found. https://gsap.com
+[2m5:47:46 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:49 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-lede not found. https://gsap.com
+[2m5:47:49 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:49 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-actions > * not found. https://gsap.com
+[2m5:47:49 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+[2m5:47:49 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target .hero-cue not found. https://gsap.com
+[2m5:47:49 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mGSAP target  not found. https://gsap.com
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/HeroScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/HeroScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/HeroScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/HeroScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/TrustStrip.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/TrustStrip.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/TrustStrip.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/TrustStrip.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/AboutScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/AboutScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:53 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/AboutScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/AboutScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ConversationScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ConversationScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ConversationScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ConversationScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/MovementScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/MovementScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/MovementScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/MovementScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/NoiseScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/NoiseScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/NoiseScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/NoiseScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ProcessRoute.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ProcessRoute.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ProcessRoute.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ProcessRoute.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/RegionsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/RegionsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:54 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/RegionsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/RegionsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ServiceSystem.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ServiceSystem.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ServiceSystem.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ServiceSystem.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/StoryBuildScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/StoryBuildScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/StoryBuildScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/StoryBuildScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/InsightsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/InsightsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/InsightsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m6:30:55 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/InsightsScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.

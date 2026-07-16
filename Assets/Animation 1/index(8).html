@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0e0e0e">
+<title>Meet the Parrot — Scroll Character Section</title>
+<style>
+:root{
+  --bg:#0e0e0e;
+  --paper:#d8c19a;
+  --ink:#f3efe9;
+  --muted:#a8a39d;
+  --red:#df343c;
+  --cream:#e8dcc4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{
+  margin:0;
+  overflow-x:hidden;
+  background:#080808;
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+}
+.scene{
+  position:relative;
+  height:420vh;
+  background:#080808;
+}
+.sticky{
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.stage{
+  position:relative;
+  width:min(100vw,calc(100vh * 1.7778));
+  aspect-ratio:16/9;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 58% 42%,rgba(76,25,27,.13),transparent 28%),
+    linear-gradient(120deg,rgba(255,255,255,.025),transparent 36%),
+    url("assets/dark-paper.jpg") center/cover no-repeat;
+  box-shadow:0 35px 120px rgba(0,0,0,.62);
+}
+.stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:90;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 43%,transparent 42%,rgba(0,0,0,.42) 112%),
+    linear-gradient(90deg,rgba(0,0,0,.16),transparent 38%,rgba(0,0,0,.08));
+}
+.hero-copy{
+  position:absolute;
+  z-index:55;
+  left:3.2%;
+  top:5.1%;
+  width:34%;
+  will-change:transform,opacity;
+}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:.8em;
+  color:#ddd8d1;
+  font-size:clamp(7px,.8vw,13px);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.eyebrow::before{
+  content:"";
+  width:.72em;
+  height:.72em;
+  background:var(--red);
+}
+h1{
+  margin:.7em 0 0;
+  max-width:10.8em;
+  font-size:clamp(30px,4.3vw,72px);
+  line-height:.94;
+  letter-spacing:-.065em;
+  font-weight:900;
+}
+h1 em{
+  color:var(--red);
+  font-style:italic;
+  white-space:nowrap;
+}
+.intro{
+  max-width:29em;
+  margin-top:1.5em;
+  color:#c1bdb7;
+  font-size:clamp(10px,1.06vw,17px);
+  line-height:1.55;
+}
+.link{
+  display:inline-flex;
+  align-items:center;
+  gap:1.8em;
+  margin-top:2.2em;
+  color:#eee9e2;
+  border-bottom:1px solid var(--red);
+  padding-bottom:.6em;
+  font-size:clamp(8px,.8vw,13px);
+  letter-spacing:.08em;
+}
+.link b{font-size:1.4em;font-weight:400}
+
+.collage{
+  position:absolute;
+  z-index:8;
+  left:42.2%;
+  top:9.2%;
+  width:31%;
+  height:60%;
+  pointer-events:none;
+}
+.scrap{
+  position:absolute;
+  border-radius:1px;
+  filter:drop-shadow(0 20px 14px rgba(0,0,0,.38));
+  will-change:transform,opacity;
+}
+.scrap.kraft{
+  width:62%;height:65%;left:12%;top:4%;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,.1),transparent),
+    repeating-linear-gradient(16deg,transparent 0 9px,rgba(65,38,15,.035) 10px 11px),
+    #bda47c;
+  clip-path:polygon(4% 4%,88% 0,100% 85%,7% 100%,0 31%);
+  transform:rotate(7deg);
+}
+.scrap.black-a{
+  width:72%;height:55%;left:0;top:43%;
+  background:#111;
+  clip-path:polygon(0 14%,92% 0,100% 80%,17% 100%);
+  transform:rotate(-11deg);
+}
+.scrap.black-b{
+  width:68%;height:62%;right:0;top:37%;
+  background:#151515;
+  clip-path:polygon(7% 0,100% 11%,84% 100%,0 86%);
+  transform:rotate(9deg);
+}
+.scrap.blue{
+  width:13%;aspect-ratio:1;left:0;top:8%;
+  border-radius:50%;background:#193b7a;
+  transform:rotate(-4deg);
+}
+.scrap.red{
+  width:20%;aspect-ratio:1;right:2%;bottom:0;
+  border-radius:50%;background:#cf2832;
+  transform:rotate(4deg);
+}
+.parrot{
+  position:absolute;
+  z-index:35;
+  left:35.6%;
+  top:3.6%;
+  width:39%;
+  height:auto;
+  filter:drop-shadow(0 28px 28px rgba(0,0,0,.48));
+  transform-origin:50% 76%;
+  will-change:transform,opacity,filter;
+}
+.tape{
+  position:absolute;
+  z-index:39;
+  left:50.8%;
+  top:61%;
+  width:11.5%;
+  height:4.4%;
+  background:rgba(228,214,191,.38);
+  border:1px solid rgba(255,255,255,.13);
+  transform:rotate(-7deg);
+  backdrop-filter:blur(2px);
+  box-shadow:0 7px 14px rgba(0,0,0,.18);
+  will-change:transform,opacity;
+}
+
+.trait{
+  position:absolute;
+  z-index:48;
+  width:18.5%;
+  color:#eee9e2;
+  font-family:"Segoe Print","Comic Sans MS",cursive;
+  will-change:transform,opacity;
+}
+.trait .icon{
+  width:42px;height:42px;margin-bottom:.15em;
+  display:grid;place-items:center;
+  color:var(--red);
+  font-family:Arial,sans-serif;
+  font-size:34px;
+  line-height:1;
+}
+.trait h3{
+  margin:.1em 0 .3em;
+  font-size:clamp(17px,1.65vw,28px);
+  font-weight:500;
+  letter-spacing:.02em;
+}
+.trait p{
+  margin:0;
+  color:#d1ccc5;
+  font-size:clamp(10px,1vw,16px);
+  line-height:1.5;
+}
+.trait::before{
+  content:"";
+  position:absolute;
+  top:42%;
+  width:76px;
+  height:1px;
+  background:rgba(238,233,226,.8);
+}
+.trait::after{
+  content:"";
+  position:absolute;
+  top:calc(42% - 4px);
+  width:9px;height:9px;
+  border-top:1px solid rgba(238,233,226,.8);
+  border-right:1px solid rgba(238,233,226,.8);
+}
+.trait-loud{left:25.8%;top:41.2%;text-align:right;width:11.8%}
+.trait-loud::before{right:-88px;transform:rotate(19deg)}
+.trait-loud::after{right:-89px;transform:rotate(64deg)}
+.trait-bold{left:72.2%;top:9.8%}
+.trait-bold::before{left:-87px;transform:rotate(-29deg)}
+.trait-bold::after{left:-89px;transform:rotate(16deg)}
+.trait-focus{left:75.9%;top:27.4%}
+.trait-focus::before{left:-89px;transform:rotate(-23deg)}
+.trait-focus::after{left:-91px;transform:rotate(22deg)}
+.trait-fearless{left:76.4%;top:46.2%}
+.trait-fearless::before{left:-88px;transform:rotate(-17deg)}
+.trait-fearless::after{left:-90px;transform:rotate(28deg)}
+
+.dot-grid{
+  position:absolute;
+  z-index:14;
+  left:30.8%;
+  top:58.4%;
+  width:7.2%;
+  aspect-ratio:1;
+  opacity:.7;
+  background-image:radial-gradient(circle,rgba(240,235,226,.8) 0 1.1px,transparent 1.5px);
+  background-size:12.5% 12.5%;
+  will-change:transform,opacity;
+}
+.values-title{
+  position:absolute;
+  z-index:51;
+  left:3.1%;
+  bottom:31.5%;
+  display:flex;
+  align-items:center;
+  gap:1em;
+  width:65.6%;
+  color:var(--red);
+  font-size:clamp(8px,.83vw,14px);
+  letter-spacing:.07em;
+}
+.values-title::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:rgba(230,224,214,.38);
+}
+.values{
+  position:absolute;
+  z-index:50;
+  left:3.1%;
+  bottom:4.6%;
+  width:66.2%;
+  height:24.5%;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.02),transparent),
+    #111;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.035);
+  clip-path:polygon(0 4%,100% 0,100% 94%,0 100%);
+  filter:drop-shadow(0 20px 18px rgba(0,0,0,.35));
+  will-change:transform,opacity;
+}
+.value{
+  position:relative;
+  padding:14% 12% 8%;
+  border-right:1px solid rgba(255,255,255,.10);
+  opacity:0;
+  transform:translateY(26px);
+}
+.value:last-child{border-right:none}
+.value-icon{
+  width:46px;height:46px;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:8px;
+  font-size:24px;
+}
+.value h4{
+  margin:1.35em 0 .7em;
+  font-size:clamp(9px,.88vw,15px);
+}
+.value p{
+  margin:0;color:#bcb7b0;
+  font-size:clamp(7px,.72vw,12px);
+  line-height:1.55;
+}
+.value .plus{
+  position:absolute;left:12%;bottom:4%;
+  color:var(--red);font-size:24px;font-weight:300;
+}
+.note{
+  position:absolute;
+  z-index:52;
+  right:8.4%;
+  bottom:5.5%;
+  width:16.2%;
+  min-height:27%;
+  padding:3.6% 2.3% 2%;
+  color:#161311;
+  background:
+    linear-gradient(100deg,rgba(255,255,255,.16),transparent 35%),
+    repeating-linear-gradient(12deg,transparent 0 10px,rgba(80,49,20,.035) 11px 12px),
+    #d8c09a;
+  transform:rotate(5deg);
+  box-shadow:0 25px 22px rgba(0,0,0,.38);
+  will-change:transform,opacity;
+}
+.note::before,.note::after{
+  content:"";position:absolute;z-index:-1;inset:3% -7% -4% 8%;
+  background:#c92d35;transform:rotate(1deg);
+}
+.note::after{inset:6% -4% -7% -7%;background:#163a78;transform:rotate(-2deg)}
+.note strong{
+  display:block;
+  text-align:center;
+  font-size:clamp(8px,.76vw,13px);
+  line-height:1.55;
+  letter-spacing:.03em;
+}
+.note hr{border:0;border-top:1px solid rgba(44,34,22,.5);margin:1.3em 0}
+.note span{
+  display:block;
+  margin:.65em 0;
+  font-family:"Segoe Print","Comic Sans MS",cursive;
+  font-size:clamp(7px,.7vw,12px);
+}
+.note span::before{content:"✓";color:var(--red);margin-right:.7em}
+.paperclip{
+  position:absolute;
+  right:10%;
+  top:-3%;
+  width:14px;height:46px;
+  border:2px solid #292119;
+  border-radius:8px;
+  transform:rotate(10deg);
+}
+.scroll-indicator{
+  position:absolute;
+  z-index:54;
+  right:2.6%;
+  bottom:5%;
+  width:5.4%;
+  text-align:center;
+  color:#aaa59e;
+  font-size:clamp(6px,.68vw,11px);
+  line-height:1.45;
+}
+.mouse{
+  margin:1.2em auto .65em;
+  width:22px;height:39px;border:1px solid #aaa59e;border-radius:12px;
+  position:relative;
+}
+.mouse::before{
+  content:"";position:absolute;left:50%;top:8px;width:4px;height:7px;
+  background:var(--red);border-radius:4px;transform:translateX(-50%);
+}
+.arrow-down{font-size:25px;color:#c5c0b8}
+.side-progress{
+  position:absolute;
+  right:1.6%;
+  top:31%;
+  z-index:53;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:17px;
+  color:#b4afa8;
+  font-size:10px;
+}
+.side-progress i{
+  width:6px;height:6px;border-radius:50%;background:#d4d0c8;
+  display:block;transition:.2s;
+}
+.side-progress i.active{background:var(--red);transform:scale(1.25)}
+.hint{
+  position:fixed;
+  z-index:200;
+  left:50%;
+  bottom:16px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:9px 12px;
+  border-radius:999px;
+  color:rgba(255,255,255,.82);
+  background:rgba(0,0,0,.54);
+  backdrop-filter:blur(10px);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.hint-track{width:60px;height:2px;background:rgba(255,255,255,.18);overflow:hidden}
+.hint-track b{display:block;width:100%;height:100%;background:var(--red);transform-origin:left;transform:scaleX(0)}
+
+@media(max-width:760px){
+  .scene{height:300vh}
+  .hero-copy{left:5%;top:6%;width:54%}
+  .intro{display:none}
+  .link{margin-top:1.2em}
+  .parrot{left:38%;top:17%;width:55%}
+  .collage{left:36%;top:17%;width:50%}
+  .trait{display:none}
+  .values-title{left:5%;width:90%;bottom:33%}
+  .values{left:5%;width:90%;height:26%;grid-template-columns:repeat(5,1fr)}
+  .value p{display:none}
+  .note{display:none}
+  .scroll-indicator{display:none}
+  .side-progress{right:1%}
+}
+@media(prefers-reduced-motion:reduce){
+  .scene{height:100vh}
+  .hint{display:none}
+}
+</style>
+</head>
+<body>
+<section class="scene" id="character-scene">
+  <div class="sticky">
+    <div class="stage">
+      <div class="hero-copy">
+        <div class="eyebrow">OUR CHARACTER</div>
+        <h1>More than a mascot.<br>A mindset that<br><em>moves ideas.</em></h1>
+        <p class="intro">Our parrot represents how we think, create, and show up for our clients—loud in ideas, sharp in strategy, and fearless in execution.</p>
+        <div class="link">MEET THE PARROT <b>→</b></div>
+      </div>
+
+      <div class="collage">
+        <div class="scrap kraft parallax" data-x="22" data-y="-18" data-r="4"></div>
+        <div class="scrap black-a parallax" data-x="-25" data-y="18" data-r="-6"></div>
+        <div class="scrap black-b parallax" data-x="20" data-y="26" data-r="5"></div>
+        <div class="scrap blue parallax" data-x="-16" data-y="-22" data-r="-4"></div>
+        <div class="scrap red parallax" data-x="28" data-y="-20" data-r="3"></div>
+      </div>
+
+      <img class="parrot" src="assets/parrot-cutout.png" alt="Word of Mouth parrot mascot">
+      <div class="tape"></div>
+
+      <div class="trait trait-loud">
+        <div class="icon">◖</div>
+        <h3>LOUD</h3>
+        <p>We speak up.<br>We get attention.</p>
+      </div>
+
+      <div class="trait trait-bold">
+        <div class="icon">♔</div>
+        <h3>BOLD</h3>
+        <p>We don’t follow trends.<br>We set the tone.</p>
+      </div>
+
+      <div class="trait trait-focus">
+        <div class="icon">◉</div>
+        <h3>FOCUSED</h3>
+        <p>Clear vision.<br>Smarter decisions.</p>
+      </div>
+
+      <div class="trait trait-fearless">
+        <div class="icon">ϟ</div>
+        <h3>FEARLESS</h3>
+        <p>We challenge the norm<br>to create real impact.</p>
+      </div>
+
+      <div class="dot-grid"></div>
+
+      <div class="values-title">WHAT HE STANDS FOR</div>
+      <div class="values">
+        <article class="value">
+          <div class="value-icon">◌</div>
+          <h4>Creative Intelligence</h4>
+          <p>Ideas with meaning.<br>Creativity with purpose.</p>
+          <span class="plus">＋</span>
+        </article>
+        <article class="value">
+          <div class="value-icon">⌾</div>
+          <h4>Strategic Focus</h4>
+          <p>Every idea is backed<br>by strategy and insight.</p>
+          <span class="plus">＋</span>
+        </article>
+        <article class="value">
+          <div class="value-icon">◁</div>
+          <h4>Attention Driven</h4>
+          <p>We cut through noise<br>and make brands unmissable.</p>
+          <span class="plus">＋</span>
+        </article>
+        <article class="value">
+          <div class="value-icon">↗</div>
+          <h4>Results Obsessed</h4>
+          <p>We measure what matters<br>and deliver what counts.</p>
+          <span class="plus">＋</span>
+        </article>
+        <article class="value">
+          <div class="value-icon">♡</div>
+          <h4>Human Connection</h4>
+          <p>Behind every brand,<br>real people. Real impact.</p>
+          <span class="plus">＋</span>
+        </article>
+      </div>
+
+      <aside class="note">
+        <div class="paperclip"></div>
+        <strong>NOT JUST A PARROT.<br>A PART OF OUR CULTURE.</strong>
+        <hr>
+        <span>Always curious</span>
+        <span>Always learning</span>
+        <span>Always creating</span>
+        <span>Always you</span>
+      </aside>
+
+      <div class="side-progress">
+        <span>01</span>
+        <i></i><i></i><i class="active"></i><i></i><i></i><i></i>
+        <span>06</span>
+      </div>
+
+      <div class="scroll-indicator">
+        SCROLL<br>TO MEET HIM
+        <div class="mouse"></div>
+        <div class="arrow-down">↓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hint"><span>Scroll to meet him</span><span class="hint-track"><b></b></span></div>
+
+<script>
+(() => {
+  const scene = document.querySelector(".scene");
+  const hero = document.querySelector(".hero-copy");
+  const parrot = document.querySelector(".parrot");
+  const tape = document.querySelector(".tape");
+  const scraps = [...document.querySelectorAll(".parallax")];
+  const traits = [...document.querySelectorAll(".trait")];
+  const valuesTitle = document.querySelector(".values-title");
+  const values = document.querySelector(".values");
+  const cards = [...document.querySelectorAll(".value")];
+  const note = document.querySelector(".note");
+  const dotGrid = document.querySelector(".dot-grid");
+  const indicator = document.querySelector(".scroll-indicator");
+  const hint = document.querySelector(".hint");
+  const hintFill = document.querySelector(".hint-track b");
+  const reduced = matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const preview = new URLSearchParams(location.search).has("preview");
+
+  const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+  const smooth=t=>t*t*(3-2*t);
+  const local=(p,a,b)=>smooth(clamp((p-a)/(b-a)));
+
+  let mouseX=0, mouseY=0;
+  addEventListener("pointermove",e=>{
+    mouseX=(e.clientX/innerWidth-.5);
+    mouseY=(e.clientY/innerHeight-.5);
+  },{passive:true});
+
+  function apply(p){
+    p=clamp(p);
+
+    const heroIn=local(p,.01,.20);
+    hero.style.opacity=heroIn.toFixed(3);
+    hero.style.transform=`translate3d(${(-38*(1-heroIn)).toFixed(1)}px,${(18*(1-heroIn)-p*6).toFixed(1)}px,0)`;
+
+    const birdIn=local(p,.06,.35);
+    const birdSettle=local(p,.35,.72);
+    const birdScale=.80+birdIn*.22-birdSettle*.02;
+    const birdY=80*(1-birdIn)-20*birdSettle + mouseY*6;
+    const birdX=mouseX*8;
+    const birdRot=(-2.2*(1-birdIn))+mouseX*1.2;
+    parrot.style.opacity=birdIn.toFixed(3);
+    parrot.style.transform=`translate3d(${birdX.toFixed(1)}px,${birdY.toFixed(1)}px,0) rotate(${birdRot.toFixed(2)}deg) scale(${birdScale.toFixed(3)})`;
+    parrot.style.filter=`drop-shadow(0 ${Math.round(18+birdIn*18)}px ${Math.round(18+birdIn*22)}px rgba(0,0,0,.5))`;
+
+    scraps.forEach((el,i)=>{
+      const enter=local(p,.04+i*.035,.26+i*.035);
+      const travel=(p-.5)*2;
+      const x=(+el.dataset.x||0)*travel+mouseX*(4+i);
+      const y=(+el.dataset.y||0)*travel+mouseY*(3+i*.4);
+      const r=(+el.dataset.r||0)*travel;
+      el.style.opacity=(.08+enter*.92).toFixed(3);
+      el.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) rotate(${r.toFixed(2)}deg) scale(${(.9+enter*.1).toFixed(3)})`;
+    });
+
+    const tapeIn=local(p,.30,.48);
+    tape.style.opacity=tapeIn.toFixed(3);
+    tape.style.transform=`translateY(${(18*(1-tapeIn)).toFixed(1)}px) rotate(${(-12+5*tapeIn).toFixed(2)}deg)`;
+
+    traits.forEach((el,i)=>{
+      const start=.23+i*.10;
+      const show=local(p,start,start+.16);
+      const drift=(p-.5)*(i%2?8:-8);
+      el.style.opacity=show.toFixed(3);
+      el.style.transform=`translate3d(${((i===0?-24:28)*(1-show)).toFixed(1)}px,${(16*(1-show)+drift).toFixed(1)}px,0)`;
+    });
+
+    const gridIn=local(p,.30,.56);
+    dotGrid.style.opacity=(gridIn*.75).toFixed(3);
+    dotGrid.style.transform=`translate3d(${(mouseX*-8).toFixed(1)}px,${(-18*(1-gridIn)+mouseY*5).toFixed(1)}px,0)`;
+
+    const valuesIn=local(p,.55,.76);
+    valuesTitle.style.opacity=valuesIn.toFixed(3);
+    valuesTitle.style.transform=`translateY(${(18*(1-valuesIn)).toFixed(1)}px)`;
+    values.style.opacity=valuesIn.toFixed(3);
+    values.style.transform=`translateY(${(55*(1-valuesIn)).toFixed(1)}px)`;
+
+    cards.forEach((card,i)=>{
+      const show=local(p,.60+i*.045,.73+i*.045);
+      card.style.opacity=show.toFixed(3);
+      card.style.transform=`translateY(${(26*(1-show)).toFixed(1)}px)`;
+    });
+
+    const noteIn=local(p,.70,.92);
+    note.style.opacity=noteIn.toFixed(3);
+    note.style.transform=`translate3d(${(50*(1-noteIn)).toFixed(1)}px,${(38*(1-noteIn)).toFixed(1)}px,0) rotate(${(11-6*noteIn).toFixed(2)}deg)`;
+
+    const ind=1-local(p,.78,.98);
+    indicator.style.opacity=ind.toFixed(3);
+    indicator.style.transform=`translateY(${(12*p).toFixed(1)}px)`;
+
+    hintFill.style.transform=`scaleX(${p.toFixed(3)})`;
+    hint.style.opacity=p>.95?"0":"1";
+  }
+
+  function update(){
+    if(preview){apply(.67);return}
+    if(reduced){apply(1);return}
+    const rect=scene.getBoundingClientRect();
+    const max=scene.offsetHeight-innerHeight;
+    apply(clamp(-rect.top/Math.max(max,1)));
+  }
+
+  let ticking=false;
+  function requestUpdate(){
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(()=>{update();ticking=false});
+  }
+
+  addEventListener("scroll",requestUpdate,{passive:true});
+  addEventListener("resize",requestUpdate);
+  setInterval(()=>{ if(!reduced) requestUpdate(); },34);
+  update();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+[2m1:04:23 PM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m [33mwarning: client component dependency is inconsistently optimized. It's recommended to add the dependency to 'optimizeDeps.exclude'.[39m
+  Plugin: [35mrsc:use-client[39m
+  File: [36mD:/WOM Website/word-of-mouth-parrot-project/node_modules/lucide-react/dist/esm/Icon.mjs?v=d915cb19[39m
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m3:25:44 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m3:40:35 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m3:40:40 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m3:41:07 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m3:41:08 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vinext/dist/server/socket-error-backstop.js:114
+		throw err;
+		^
+
+Error: EBUSY: resource busy or locked, watch 'D:\WOM Website\word-of-mouth-parrot-project\Assets\ChatGPT Image Jul 16, 2026, 04_18_30 PM.png'
+    at FSWatcher.<computed> (node:internal/fs/watchers:321:19)
+    at Object.watch (node:fs:2548:36)
+    at createFsWatchInstance (file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vite/dist/node/chunks/node.js:9185:16)
+    at setFsWatchListener (file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vite/dist/node/chunks/node.js:9227:14)
+    at NodeFsHandler._watchWithNodeFs (file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vite/dist/node/chunks/node.js:9342:20)
+    at NodeFsHandler._handleFile (file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vite/dist/node/chunks/node.js:9386:24)
+    at NodeFsHandler._addToNodeFs (file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vite/dist/node/chunks/node.js:9560:26)
+Emitted 'error' event on FSWatcher instance at:
+    at FSWatcher._handleError (file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vite/dist/node/chunks/node.js:10359:146)
+    at NodeFsHandler._addToNodeFs (file:///D:/WOM%20Website/word-of-mouth-parrot-project/node_modules/vite/dist/node/chunks/node.js:9565:18) {
+  errno: -4082,
+  syscall: 'watch',
+  code: 'EBUSY',
+  path: 'D:\\WOM Website\\word-of-mouth-parrot-project\\Assets\\ChatGPT Image Jul 16, 2026, 04_18_30 PM.png',
+  filename: 'D:\\WOM Website\\word-of-mouth-parrot-project\\Assets\\ChatGPT Image Jul 16, 2026, 04_18_30 PM.png'
+}
+
+Node.js v24.16.0

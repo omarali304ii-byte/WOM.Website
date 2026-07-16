@@ -1,0 +1,70 @@
+.page {
+  min-height: 100vh;
+  padding: 9rem 0 6rem;
+  background: var(--paper, #f3eadf);
+  color: var(--ink, #101010);
+}
+
+.shell {
+  width: min(880px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.back {
+  display: inline-flex;
+  margin-bottom: 3rem;
+  color: inherit;
+  font: 600 0.78rem/1 var(--font-geist-mono), monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.page h1 {
+  max-width: 760px;
+  margin: 0 0 1.25rem;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 520;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.updated {
+  margin-bottom: 4rem;
+  color: #5e5953;
+  font: 500 0.75rem/1.4 var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.content {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.content section {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(16, 16, 16, 0.2);
+}
+
+.content h2 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.content p,
+.content li {
+  max-width: 72ch;
+  color: #403c37;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.content ul {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.25rem;
+}
+
+.content a {
+  color: var(--signal, #d9363e);
+}

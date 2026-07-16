@@ -1,0 +1,234 @@
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m11:46:10 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/IdentityScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] SyntaxError: The requested module '/app/data/site.ts?t=1784198463159' does not provide an export named 'moments'
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/StoryScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] SyntaxError: The requested module '/app/data/site.ts?t=1784198463159' does not provide an export named 'outcomes'
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ImpactScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] SyntaxError: The requested module '/app/data/site.ts?t=1784198463159' does not provide an export named 'heroWords'
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/HeroScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] SyntaxError: The requested module '/app/data/site.ts?t=1784198463159' does not provide an export named 'faq'
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/components/sections/ContactScene.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mSyntaxError: The requested module '/app/data/site.ts?t=1784198463159' does not provide an export named 'heroWords'
+[2m12:41:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mThe above error occurred in a React component:
+
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at Home (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/page.tsx?11:130:20)
+    at AwaitAppRenderDependencies [Server] (<anonymous>)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at LayoutSegmentProvider (http://localhost:3000/node_modules/vinext/dist/shims/layout-segment-context.js?v=f55bf706:32:34)
+    at RedirectErrorBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:56:3)
+    at RedirectBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:86:29)
+    at NotFoundBoundaryInner (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:149:3)
+    at NotFoundBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:182:29)
+    at NotFoundBoundaryInner (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:149:3)
+    at NotFoundBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:182:29)
+    at Children (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:64:17)
+    at body (<anonymous>)
+    at html (<anonymous>)
+    at RootLayout [Server] (<anonymous>)
+    at default (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/layout.tsx?1:104:26)
+    at default (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/layout.tsx?1:104:26)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at LayoutSegmentProvider (http://localhost:3000/node_modules/vinext/dist/shims/layout-segment-context.js?v=f55bf706:32:34)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at NavigationCommitSignal (http://localhost:3000/node_modules/vinext/dist/server/app-browser-navigation-controller.js?v=f55bf706:184:36)
+    at RedirectErrorBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:56:3)
+    at RedirectBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:86:29)
+    at DevRecoveryBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:268:3)
+    at BrowserRoot (http://localhost:3000/node_modules/vinext/dist/server/app-browser-entry.js?v=f55bf706:209:24)
+[2m12:42:30 PM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m [33mwarning: client component dependency is inconsistently optimized. It's recommended to add the dependency to 'optimizeDeps.exclude'.[39m
+  Plugin: [35mrsc:use-client[39m
+  File: [36mD:/WOM Website/word-of-mouth-parrot-project/node_modules/lucide-react/dist/esm/Icon.mjs?v=180efd9d[39m
+[2m12:43:32 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mSyntaxError: The requested module '/app/data/site.ts?t=1784198463159' does not provide an export named 'moments'
+[2m12:43:32 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mThe above error occurred in a React component:
+
+    at Lazy (<anonymous>)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at Home (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/page.tsx?11:130:20)
+    at AwaitAppRenderDependencies [Server] (<anonymous>)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at LayoutSegmentProvider (http://localhost:3000/node_modules/vinext/dist/shims/layout-segment-context.js?v=f55bf706:32:34)
+    at RedirectErrorBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:56:3)
+    at RedirectBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:86:29)
+    at NotFoundBoundaryInner (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:149:3)
+    at NotFoundBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:182:29)
+    at NotFoundBoundaryInner (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:149:3)
+    at NotFoundBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:182:29)
+    at Children (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:64:17)
+    at body (<anonymous>)
+    at html (<anonymous>)
+    at RootLayout [Server] (<anonymous>)
+    at default (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/layout.tsx?1:104:26)
+    at default (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/layout.tsx?1:104:26)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at LayoutSegmentProvider (http://localhost:3000/node_modules/vinext/dist/shims/layout-segment-context.js?v=f55bf706:32:34)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at NavigationCommitSignal (http://localhost:3000/node_modules/vinext/dist/server/app-browser-navigation-controller.js?v=f55bf706:184:36)
+    at RedirectErrorBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:56:3)
+    at RedirectBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:86:29)
+    at DevRecoveryBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:268:3)
+    at BrowserRoot (http://localhost:3000/node_modules/vinext/dist/server/app-browser-entry.js?v=f55bf706:209:24)
+[2m12:43:32 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mSyntaxError: The requested module '/app/data/site.ts?t=1784198463159' does not provide an export named 'moments'
+[2m12:43:32 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mThe above error occurred in a React component:
+
+    at Lazy (<anonymous>)
+    at main (<anonymous>)
+    at div (<anonymous>)
+    at Home (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/page.tsx?11:130:20)
+    at AwaitAppRenderDependencies [Server] (<anonymous>)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at LayoutSegmentProvider (http://localhost:3000/node_modules/vinext/dist/shims/layout-segment-context.js?v=f55bf706:32:34)
+    at RedirectErrorBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:56:3)
+    at RedirectBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:86:29)
+    at NotFoundBoundaryInner (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:149:3)
+    at NotFoundBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:182:29)
+    at NotFoundBoundaryInner (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:149:3)
+    at NotFoundBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:182:29)
+    at Children (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:64:17)
+    at body (<anonymous>)
+    at html (<anonymous>)
+    at RootLayout [Server] (<anonymous>)
+    at default (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/layout.tsx?1:104:26)
+    at default (about://React/Server/D:/WOM%20Website/word-of-mouth-parrot-project/app/layout.tsx?1:104:26)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at LayoutSegmentProvider (http://localhost:3000/node_modules/vinext/dist/shims/layout-segment-context.js?v=f55bf706:32:34)
+    at Slot (http://localhost:3000/node_modules/vinext/dist/shims/slot.js?v=f55bf706:42:17)
+    at NavigationCommitSignal (http://localhost:3000/node_modules/vinext/dist/server/app-browser-navigation-controller.js?v=f55bf706:184:36)
+    at RedirectErrorBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:56:3)
+    at RedirectBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:86:29)
+    at DevRecoveryBoundary (http://localhost:3000/node_modules/vinext/dist/shims/error-boundary.js?v=f55bf706:268:3)
+    at BrowserRoot (http://localhost:3000/node_modules/vinext/dist/server/app-browser-entry.js?v=f55bf706:209:24)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m12:43:58 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'map')[39m
+      at StoryScene (D:/WOM Website/word-of-mouth-parrot-project/app/components/sections/StoryScene.tsx:113:20)
+      at Object.react_stack_bottom_frame (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:10313:18)
+      at renderWithHooks (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5399:19)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5834:23)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6445:15)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6765:31)
+      at performWork (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7793:17)
+      at null.<anonymous> (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:4842:22)
+[2m12:45:29 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'map')[39m
+      at StoryScene (D:/WOM Website/word-of-mouth-parrot-project/app/components/sections/StoryScene.tsx:113:20)
+      at Object.react_stack_bottom_frame (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:10313:18)
+      at renderWithHooks (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5399:19)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5834:23)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6445:15)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6765:31)
+      at renderNodeDestructive (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6715:11)
+      at renderNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7253:18)
+      at renderChildrenArray (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7022:11)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6789:13)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m12:46:49 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'map')[39m
+      at StoryScene (D:/WOM Website/word-of-mouth-parrot-project/app/components/sections/StoryScene.tsx:113:20)
+      at Object.react_stack_bottom_frame (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:10313:18)
+      at renderWithHooks (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5399:19)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5834:23)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6445:15)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6765:31)
+      at performWork (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7793:17)
+      at null.<anonymous> (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:4842:22)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m12:47:36 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'map')[39m
+      at StoryScene (D:/WOM Website/word-of-mouth-parrot-project/app/components/sections/StoryScene.tsx:113:20)
+      at Object.react_stack_bottom_frame (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:10313:18)
+      at renderWithHooks (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5399:19)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5834:23)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6445:15)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6765:31)
+      at performWork (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7793:17)
+      at null.<anonymous> (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:4842:22)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m12:48:33 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'map')[39m
+      at StoryScene (D:/WOM Website/word-of-mouth-parrot-project/app/components/sections/StoryScene.tsx:113:20)
+      at Object.react_stack_bottom_frame (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:10313:18)
+      at renderWithHooks (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5399:19)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5834:23)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6445:15)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6765:31)
+      at performWork (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7793:17)
+      at null.<anonymous> (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:4842:22)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m12:49:52 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'map')[39m
+      at StoryScene (D:/WOM Website/word-of-mouth-parrot-project/app/components/sections/StoryScene.tsx:113:20)
+      at Object.react_stack_bottom_frame (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:10313:18)
+      at renderWithHooks (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5399:19)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5834:23)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6445:15)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6765:31)
+      at performWork (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7793:17)
+      at null.<anonymous> (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:4842:22)
+[2m12:50:23 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'map')[39m
+      at ImpactScene (D:/WOM Website/word-of-mouth-parrot-project/app/components/sections/ImpactScene.tsx:66:21)
+      at Object.react_stack_bottom_frame (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:10313:18)
+      at renderWithHooks (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5399:19)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:5834:23)
+      at renderElement (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6445:15)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6765:31)
+      at renderNodeDestructive (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6715:11)
+      at renderNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7253:18)
+      at renderChildrenArray (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:7022:11)
+      at retryNode (D:/WOM Website/word-of-mouth-parrot-project/node_modules/react-dom/cjs/react-dom-server.edge.development.js:6789:13)
+[2m12:51:17 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m12:51:29 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m12:51:29 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m12:51:29 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m1:00:25 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m1:00:25 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m1:00:25 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m1:00:25 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot read properties of undefined (reading 'fetch')[39m
+      at Object.fetchAsset (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:34:42)
+      at handleImageOptimization (D:/WOM Website/word-of-mouth-parrot-project/node_modules/vinext/src/server/image-optimization.ts:237:33)
+      at Object.fetch (D:/WOM Website/word-of-mouth-parrot-project/worker/index.ts:33:14)
+      at null.<anonymous> (workers/runner-worker/index.js:359:20)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)

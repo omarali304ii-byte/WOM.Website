@@ -9,6 +9,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // All raster assets are pre-sized and pre-compressed (WebP/small PNGs), and
+  // the Worker has no IMAGES binding, so the runtime optimizer is disabled.
+  images: { unoptimized: true },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
