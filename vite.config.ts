@@ -1,12 +1,14 @@
 import vinext from "vinext";
 import { defineConfig } from "vite";
-import hostingConfig from "./.openai/hosting.json";
 import { sites } from "./build/sites-vite-plugin";
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   "00000000-0000-4000-8000-000000000000";
 
-const { d1, r2 } = hostingConfig;
+// Keep the optional legacy Cloudflare preview self-contained. Netlify builds
+// type-check this file but do not ship the local `.openai/hosting.json` file.
+const d1: string | null = process.env.CLOUDFLARE_D1_BINDING ?? "DB";
+const r2: string | null = process.env.CLOUDFLARE_R2_BINDING ?? null;
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
