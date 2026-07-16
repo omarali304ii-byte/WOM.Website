@@ -1,10 +1,9 @@
 "use client";
 
+import { createChat } from "@n8n/chat";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const CHAT_STYLES_URL = "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css";
-const CHAT_SCRIPT_URL = "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
 const CHAT_STATUS_EVENT = "wom:n8n-chat-status";
 const FRIENDLY_CONNECTION_ERROR =
   "We could not connect to support just now. Please try sending your message again in a moment.";
@@ -22,27 +21,7 @@ type ChatRuntime = {
   metadata: ChatMetadata;
   promise?: Promise<void>;
   observer?: MutationObserver;
-};
-
-type N8nChatModule = {
-  createChat: (options: {
-    webhookUrl: string;
-    target: string;
-    mode: "window";
-    loadPreviousSession: boolean;
-    showWelcomeScreen: boolean;
-    initialMessages: string[];
-    metadata: ChatMetadata;
-    i18n: {
-      en: {
-        title: string;
-        subtitle: string;
-        footer: string;
-        getStarted: string;
-        inputPlaceholder: string;
-      };
-    };
-  }) => unknown;
+  autoOpened?: boolean;
 };
 
 declare global {
@@ -61,28 +40,6 @@ function currentMetadata(): ChatMetadata {
     pageUrl: window.location.href,
     pageTitle: document.title,
   };
-}
-
-function loadChatStyles() {
-  return new Promise<void>((resolve, reject) => {
-    const existing = document.querySelector<HTMLLinkElement>("link[data-wom-n8n-chat-styles]");
-
-    if (existing?.sheet) {
-      resolve();
-      return;
-    }
-
-    const link = existing ?? document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = CHAT_STYLES_URL;
-    link.dataset.womN8nChatStyles = "true";
-    link.addEventListener("load", () => resolve(), { once: true });
-    link.addEventListener("error", () => reject(new Error("The support chat styles could not load.")), {
-      once: true,
-    });
-
-    if (!existing) document.head.appendChild(link);
-  });
 }
 
 function makeToggleAccessible(target: HTMLElement) {
@@ -107,6 +64,17 @@ function makeToggleAccessible(target: HTMLElement) {
       toggle.click();
     }
   });
+}
+
+function openChatForTesting(target: HTMLElement, runtime: ChatRuntime) {
+  if (runtime.autoOpened) return;
+
+  const toggle = target.querySelector<HTMLElement>(".chat-window-toggle");
+  const chatWindow = target.querySelector<HTMLElement>(".chat-window");
+  if (!toggle || !chatWindow) return;
+
+  runtime.autoOpened = true;
+  if (window.getComputedStyle(chatWindow).display === "none") toggle.click();
 }
 
 function replaceConnectionError(target: HTMLElement) {
@@ -163,11 +131,8 @@ function initializeChat() {
   window.__womN8nChat = runtime;
   publishStatus("loading");
 
-  runtime.promise = Promise.all([
-    loadChatStyles(),
-    import(/* @vite-ignore */ CHAT_SCRIPT_URL) as Promise<N8nChatModule>,
-  ])
-    .then(([, { createChat }]) => {
+  runtime.promise = Promise.resolve()
+    .then(() => {
       const target = document.getElementById("n8n-chat");
       if (!target) throw new Error("The support chat target is missing.");
 
@@ -189,12 +154,14 @@ function initializeChat() {
               footer: "",
               getStarted: "New conversation",
               inputPlaceholder: "Type your message...",
+              closeButtonTooltip: "Close chat",
             },
           },
         });
       }
 
       observeChat(target, runtime);
+      window.requestAnimationFrame(() => openChatForTesting(target, runtime));
       runtime.status = "ready";
       publishStatus("ready");
     })
@@ -242,8 +209,6 @@ export function ChatWidget() {
   }, [pathname]);
 
   const retry = () => {
-    const failedStyles = document.querySelector<HTMLLinkElement>("link[data-wom-n8n-chat-styles]");
-    if (failedStyles && !failedStyles.sheet) failedStyles.remove();
     if (window.__womN8nChat) window.__womN8nChat.status = "idle";
     setStatus("loading");
     setAttempt((value) => value + 1);

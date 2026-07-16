@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Caveat, Geist, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import { ChatWidget } from "./components/support/ChatWidget";
+import "@n8n/chat/style.css";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"], display: "swap" });
