@@ -89,3 +89,6 @@ Detected multiple renderers concurrently rendering the same context provider. Th
 Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
 Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
 Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m9:37:41 PM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m [33mwarning: client component dependency is inconsistently optimized. It's recommended to add the dependency to 'optimizeDeps.exclude'.[39m
+  Plugin: [35mrsc:use-client[39m
+  File: [36mD:/WOM Website/word-of-mouth-parrot-project/node_modules/lucide-react/dist/esm/Icon.mjs?v=9be9c38f[39m

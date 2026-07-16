@@ -6,7 +6,7 @@ import { after, before, test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = fileURLToPath(new URL("../", import.meta.url));
-const vinextCli = fileURLToPath(new URL("../node_modules/vinext/dist/cli.js", import.meta.url));
+const nextCli = fileURLToPath(new URL("../node_modules/next/dist/bin/next", import.meta.url));
 let baseUrl = "";
 let devServer;
 let serverOutput = "";
@@ -28,8 +28,8 @@ before(async () => {
   baseUrl = `http://127.0.0.1:${port}`;
   devServer = spawn(
     process.execPath,
-    [vinextCli, "dev", "--port", String(port), "--hostname", "127.0.0.1"],
-    { cwd: projectRoot, env: { ...process.env, NODE_ENV: "development" }, stdio: ["ignore", "pipe", "pipe"] },
+    [nextCli, "start", "--port", String(port), "--hostname", "127.0.0.1"],
+    { cwd: projectRoot, env: { ...process.env, NODE_ENV: "production" }, stdio: ["ignore", "pipe", "pipe"] },
   );
   devServer.stdout.on("data", (chunk) => { serverOutput += chunk.toString(); });
   devServer.stderr.on("data", (chunk) => { serverOutput += chunk.toString(); });
@@ -37,7 +37,7 @@ before(async () => {
   const deadline = Date.now() + 30_000;
   while (Date.now() < deadline) {
     if (devServer.exitCode !== null) {
-      throw new Error(`Vinext dev server exited early.\n${serverOutput}`);
+      throw new Error(`Next.js production server exited early.\n${serverOutput}`);
     }
     try {
       const response = await fetch(baseUrl);
@@ -47,7 +47,7 @@ before(async () => {
     }
     await new Promise((resolve) => setTimeout(resolve, 250));
   }
-  throw new Error(`Timed out waiting for Vinext dev server.\n${serverOutput}`);
+  throw new Error(`Timed out waiting for the Next.js production server.\n${serverOutput}`);
 });
 
 after(() => {

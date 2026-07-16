@@ -1,6 +1,4 @@
-import { env } from "cloudflare:workers";
-import { drizzle } from "drizzle-orm/d1";
-import { quoteRequests } from "../../../db/schema";
+import { getStore } from "@netlify/blobs";
 
 const MAX_BODY_LENGTH = 64_000;
 
@@ -27,18 +25,6 @@ const FAILURE_MESSAGE =
 
 type JsonRecord = Record<string, unknown>;
 type FieldErrors = Record<string, string>;
-
-class DatabaseUnavailableError extends Error {}
-
-function getDb() {
-  const database = (env as unknown as { DB?: D1Database }).DB;
-
-  if (!database) {
-    throw new DatabaseUnavailableError("Cloudflare D1 binding `DB` is unavailable.");
-  }
-
-  return drizzle(database, { schema: { quoteRequests } });
-}
 
 function json(
   body: Record<string, unknown>,
@@ -279,49 +265,24 @@ export async function POST(request: Request) {
   const requestId = crypto.randomUUID();
 
   try {
-    const db = getDb();
-    await db.insert(quoteRequests).values({
+    const quoteStore = getStore({ name: "quote-requests", consistency: "strong" });
+    await quoteStore.setJSON(`requests/${requestId}.json`, {
       id: requestId,
       ...validation.value,
       status: "new",
+      receivedAt: new Date().toISOString(),
     });
 
     return successResponse(requestId);
   } catch (error) {
-    const message = error instanceof Error ? error.message : "";
-    const cause = error instanceof Error && error.cause instanceof Error ? error.cause.message : "";
-    const detail = `${message}\n${cause}`.toLocaleLowerCase("en-US");
-
-    if (error instanceof DatabaseUnavailableError) {
-      return json(
-        {
-          ok: false,
-          code: "DATABASE_UNAVAILABLE",
-          message: FAILURE_MESSAGE,
-        },
-        503,
-      );
-    }
-
-    if (detail.includes("no such table") || detail.includes("quote_requests")) {
-      return json(
-        {
-          ok: false,
-          code: "DATABASE_NOT_READY",
-          message: FAILURE_MESSAGE,
-        },
-        503,
-      );
-    }
-
     console.error("Unable to save quote request", error);
     return json(
       {
         ok: false,
-        code: "SUBMISSION_FAILED",
+        code: "STORAGE_UNAVAILABLE",
         message: FAILURE_MESSAGE,
       },
-      500,
+      503,
     );
   }
 }
