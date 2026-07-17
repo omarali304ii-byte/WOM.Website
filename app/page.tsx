@@ -49,8 +49,9 @@ export default function Home() {
       <ScrollProgress />
 
       <main id="main-content">
-        {/* Act I — carbon: the poster wall and the printed proof. */}
+        {/* Act I — paper: the print run, then the printed proof on carbon. */}
         <HeroPoster />
+        <TearSeam tone="carbon" />
         <ProofWall />
 
         {/* Act II — paper: the idea and the manifesto. */}
